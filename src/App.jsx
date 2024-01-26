@@ -1,6 +1,6 @@
 import Container from "react-bootstrap/Container"
 
-import { cars } from "./componets/cars"
+import { Cars } from "./componets/Cars"
 import Header from "./componets/Header"
 
 export default function app(){
@@ -9,7 +9,7 @@ export default function app(){
       <Container fluid data-bs-theme='dark' className='app'>
         <Header/>
 
-        <cars></cars>
+        <Cars></Cars>
       </Container>  
       )
 }

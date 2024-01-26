@@ -1,5 +1,6 @@
 import Car from "./Car"
-export const cars = () => {
+
+export const Cars = () => {
 
   const cars = [
     {
