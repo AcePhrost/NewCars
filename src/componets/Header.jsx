@@ -1,4 +1,4 @@
-import { Navbar } from "react-bootstrap"
+import  Navbar  from "react-bootstrap/Navbar"
 import Container from "react-bootstrap/Container"
 
 export default function Header() {
@@ -7,6 +7,6 @@ export default function Header() {
         <Container>
             <Navbar.Brand href="#home">Car Lot</Navbar.Brand>
         </Container>
-  </Navbar>
+    </Navbar>
   )
 }

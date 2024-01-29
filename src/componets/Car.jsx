@@ -2,7 +2,8 @@
 export default function Car({car}) {
   return (
     <p>
-      {car.make}
+        <b>{car.user.username} </b><br/>
+        {car.make}
     </p>
   )
 }
