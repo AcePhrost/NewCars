@@ -3,8 +3,8 @@ import Container from "react-bootstrap/Container"
 // import { Cars } from "./componets/Cars"
 import Header from "./componets/Header"
 import Body from "./componets/Body"
-// import Wheelspin from "./componets/Wheelspin"
-import Register from "./componets/forms/register"
+import Wheelspin from "./componets/Wheelspin"
+// import Register from "./componets/forms/register"
 
 export default function App(){
 
@@ -13,8 +13,8 @@ export default function App(){
       <Header/>
       <Body>
         {/* <Cars /> */}
-        {/* <Wheelspin /> */}
-        <Register />
+        <Wheelspin />
+        {/* <Register /> */}
       </Body>
     </Container>  
   )
