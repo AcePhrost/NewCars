@@ -4,6 +4,10 @@ export default function Register() {
 
   const [ user, setUser ] =  useState({username: '', email: '', password:''}) 
 
+  async function registerUser(){
+    const res = await fetch('')
+  }
+
   function newSubmit(e){
     e.preventDefault()
     console.log(user);
