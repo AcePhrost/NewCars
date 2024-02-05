@@ -5,13 +5,25 @@ export default function Register() {
   const [ user, setUser ] =  useState({username: '', email: '', password:''}) 
 
   async function registerUser(){
-    const res = await fetch('')
+   console.log("registerUser:", user);
+    const res = await fetch('http://127.0.0.1:5000/user',
+    {
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(user)
+    });
+    const json = await res.json();
+    setUser({username: '', email: '', password:''})
+    console.log(json);
   }
 
   function newSubmit(e){
     e.preventDefault()
     console.log(user);
-    setUser({username: '', email: '', password:''})
+    registerUser();
+    
   }
 
   return (

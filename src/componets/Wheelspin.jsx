@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "react-bootstrap"
 
 import  Container  from "react-bootstrap/Container"
@@ -6,7 +6,8 @@ import  Container  from "react-bootstrap/Container"
 export default function Wheelspin() {
 
     const [carPicker, setCarPicker] = useState('Koenigsegg Gemera')
-
+    const [whip, setWhip]=useState([]);
+    /*
     const Whip = [
         'Porche 911',
         'Ford Shelby',
@@ -16,11 +17,30 @@ export default function Wheelspin() {
         'Dodge Viper',
         'Chevy ZL1'
     ]
-
+    */
+    useEffect(()=>{
+        getData();
+    },[]);
     function randomWhip(){
-        setCarPicker(Whip[Math.floor(Math.random() * Whip.length)] )
+        setCarPicker(whip[Math.floor(Math.random() * whip.length)] )
     }
-    
+    const getData=async()=>{
+        const resp = await fetch("http://localhost:5000/card");
+        const json = await resp.json();
+        console.log("cards", json.card);
+        const temp=[];// year+make+model
+        for (let c of json.card)
+        {
+            temp.push(c.year+" "+c.make+" "+c.model);
+        }
+        console.log("WHIP:", temp);
+        setCarPicker(temp[0]);
+        setWhip(temp);
+        
+    }
+    const sendToServer = async(value)=>{
+
+    }
     return (
         <Container> 
         <h3>Win a car!!!</h3>
