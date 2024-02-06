@@ -14,9 +14,6 @@ export default function Sidebar() {
           <Nav.Link href='/'>The Community</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-        <Nav.Link href='/'>Login/Sign-Up</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
         <Nav.Link href='/register'>Register</Nav.Link>
         </Nav.Item>
     </Navbar>
