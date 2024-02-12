@@ -8,10 +8,10 @@ export default function Sidebar() {
           <Nav.Link href='/'>Feed</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href='/'>My Collection</Nav.Link>
+          <Nav.Link href='/Cars'>My Collection</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href='/'>The Community</Nav.Link>
+          <Nav.Link href='/Wheelspin'>The Wheel</Nav.Link>
         </Nav.Item>
         <Nav.Item>
         <Nav.Link href='/register'>Register</Nav.Link>

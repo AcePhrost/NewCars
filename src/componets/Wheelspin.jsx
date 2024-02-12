@@ -7,17 +7,7 @@ export default function Wheelspin() {
 
     const [carPicker, setCarPicker] = useState('Koenigsegg Gemera')
     const [whip, setWhip]=useState([]);
-    /*
-    const Whip = [
-        'Porche 911',
-        'Ford Shelby',
-        'Ford Raptor',
-        'Dodge Demon',
-        'Dodge TRX',
-        'Dodge Viper',
-        'Chevy ZL1'
-    ]
-    */
+    // function 
     useEffect(()=>{
         getData();
     },[]);
@@ -46,6 +36,7 @@ export default function Wheelspin() {
         <h3>Win a car!!!</h3>
         <p>Car: {carPicker}</p>
         <button onClick={randomWhip}>Add to collection</button>
+        <button onClick={randomWhip}>Scrap it</button>
         </Container>
     )
 }

@@ -6,7 +6,7 @@ export default function Register() {
 
   async function registerUser(){
    console.log("registerUser:", user);
-    const res = await fetch('http://127.0.0.1:5000/user',
+    const res = await fetch('http://127.0.0.1:5000/api/user',
     {
       method:"POST",
       headers:{

@@ -1,14 +1,18 @@
 .app{
-  background-color: black;
-  color: white;
+  background-color: #02735e;
+  color: #0d0d0d;
   min-height: 900px;
 }
 .app {
   padding: 0;
 }
 
+.Navbar{
+  
+}
+
 .header {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #038C73;
 }
 
 .sidebar {
@@ -25,15 +29,15 @@
 }
 
 .sidebar a {
-  color: #444;
+  color: #038C73;
 }
 
 .sidebar a:hover {
-  background-color: #eee;
+  background-color: #36BFB1;
 }
 
 .sidebar a:visited {
-  color: #444;
+  color: #014034;
 }
 
 .sidebar .nav-item .active {
