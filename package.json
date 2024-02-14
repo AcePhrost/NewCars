@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "base-64": "^1.0.0",
     "bootstrap": "^5.3.2",
+    "buffer": "^6.0.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.0",
     "react-dom": "^18.2.0",
