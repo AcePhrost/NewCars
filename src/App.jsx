@@ -1,5 +1,5 @@
 import Container from "react-bootstrap/Container"
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes, BrowserRouter} from "react-router-dom";
 // import { Cars } from "./componets/Cars"
 
 import Header from "./componets/Header"
@@ -8,22 +8,24 @@ import Wheelspin from "./componets/Wheelspin"
 import Register from "./componets/forms/register"
 import Login from "./componets/forms/Login";
 import { Cars } from "./componets/Cars";
+import { useState } from "react";
 
 export default function App(){
+const [ user, setUser ] =  useState({username: '', email: '', password:''}) 
 
   return ( 
     <Container fluid data-bs-theme='dark' className='app'>
+      <BrowserRouter> 
       <Header/>
       <Body>
-        <Router>
         <Routes>
-          <Route path="/Login" element={<Login/>}/>
-          <Route path="/Cars" element={<Cars/>}/>
+          <Route path="/Login" element={<Login setUser={setUser}/>}/>
+          <Route path="/Cars" element={<Cars user={user}/>}/>
           <Route path="/Wheelspin" element={<Wheelspin/>}/>
           <Route path="/register" element={<Register/>}/>
         </Routes>
-        </Router>
       </Body>
+      </BrowserRouter>
     </Container>  
   )
 }

@@ -2,7 +2,7 @@ import { useState } from "react"
 import {decode as base64_decode, encode as base64_encode} from 'base-64';
 
 
-export default function Login() {
+export default function Login({setUser:setAppUser}) {
 
   const [ user, setUser ] =  useState({username: '', email: '', password:''}) 
 
@@ -10,17 +10,25 @@ export default function Login() {
    console.log("ExistUser:", user);
    let auth = base64_encode(user.username + ":" + user.password);
     // const auth = Buffer.from(user.username + ":" + user.password).toString('base64')
-    const res = await fetch('http://127.0.0.1:5000/api/user',
+    
+    const res = await fetch('http://127.0.0.1:5000/api/user/auth',
     {
-      method:"GET",
+      method:"POST",
       headers:{
         "Content-Type":"application/json",
-        "Authorization":"Basic "+ auth
+
       },
-    //   body:JSON.stringify(user)
+      body:JSON.stringify(user)
     });
     const json = await res.json();
-    setUser({username: '', email: '', password:'', tokens: 5})
+    console.log("USER", json.json )
+    alert(json.message);
+    if(json.status===1)
+    {
+      setAppUser(user)
+      sessionStorage.setItem("currentUser", JSON.stringify(json.user))
+      setUser({username: '', email: '', password:'', tokens: 5})  
+    }
     console.log(json);
   }
 
