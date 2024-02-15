@@ -12,7 +12,7 @@ import { useState } from "react";
 
 export default function App(){
 const [ user, setUser ] =  useState({username: '', email: '', password:''}) 
-
+  localStorage.setItem("API_SERVER_URI", "http://127.0.0.1:5000/api");
   return ( 
     <Container fluid data-bs-theme='dark' className='app'>
       <BrowserRouter> 

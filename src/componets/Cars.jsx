@@ -1,55 +1,41 @@
+import { useState, useEffect } from "react"
 import Car from "./Car"
 
-export const Cars = ({user}) => {
-console.log(user)
-  const cars = [
-    {
-    "model" : "G37",
-    "make" : "infinti",
-    "year" : '2009',
-    "car_id" : '1',
-    "user" : {
-      'email' : "who@mail.com",
-      'first_name': null,
-      'id' : '1',
-      'last_name': null,
-      'username': 'CameronLewis'
-    }
-    },
-    {
-    "model" : "SS",
-    "make" : "impala",
-    "year" : '2008',
-    "car_id" : '2',
-    "user" : {
-      'email' : "tester@mail.com",
-      'first_name': null,
-      'id' : '1',
-      'last_name': null,
-      'username': 'Test'
-    }
-    },
-    {
-    "model" : "M35",
-    "make" : "infinti",
-    "year" : '2010',
-    "car_id" : '3',
-    "user" : {
-      'email' : "whos@mail.com",
-      'first_name': null,
-      'id' : '1',
-      'last_name': null,
-      'username': 'Maxi'
-    }
-    },
-  ]
+export const Cars = () => {
+  const [cars, setCars]=useState([]);
+  const [user,setUser]=useState({})
+  const [loading, setLoading]=useState(true);
+  useEffect(()=>{
+    getData();
+  },[]);
 
+  const getData=async()=>{
+      const API_SERVER_URI=localStorage.getItem("API_SERVER_URI");
+      const user = JSON.parse(sessionStorage.getItem("currentUser"))
+      console.log("currentUser",user)
+      setUser(user);
+      const uri =API_SERVER_URI+"/card/user/"+user.id;
+      console.log("URI:", uri);
+      const resp = await fetch(uri);
+      const json = await resp.json();
+
+      
+      const carList=[];
+      for (let c of json.card)
+      {
+        carList.push({id:c.id,year:c.year,make:c.make,model:c.model})
+      }
+      console.log("carList:", carList);
+      setCars(carList);
+      setLoading(false);
+  
+  }
   return (
     <>
-    { cars.length > 0 ? cars.map(( car ) => {
-      return car.user.username === user.username ?
-       <Car key={car.car_id} car={car} /> : " "
-    }) : <p> No cars in Inventoy</p> }
+    { !loading ? cars.map(( car ) => (
+      
+       <Car key={car.id} car={car} />
+    )) : <p> No cars in Inventoy</p> }
     </>
   )
 }
